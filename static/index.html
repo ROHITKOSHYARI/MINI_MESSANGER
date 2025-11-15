@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secure Chat — WhatsApp Dark</title>
+
+  <!-- whatsapp dark CSS (save next) -->
+  <link rel="stylesheet" href="/wa_styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <main class="chat-shell">
+      <header class="chat-header">
+        <div class="title">
+          <div class="avatar">SM</div>
+          <div>
+            <div class="name">Secure Chat</div>
+            <div class="sub">Alice ↔ Bob — encryption demo</div>
+          </div>
+        </div>
+        <div class="header-right">
+          <button id="regenBtn" class="ghost small">Regenerate keys</button>
+          <button id="showKeysBtn" class="ghost small">Show keys</button>
+        </div>
+      </header>
+
+      <section class="chat-body" id="chatBody">
+        <!-- message list appended here -->
+        <div id="messages" class="messages" aria-live="polite"></div>
+      </section>
+
+      <footer class="chat-footer">
+        <div class="send-controls">
+          <select id="senderSelect" class="sender-select" aria-label="Send as">
+            <option value="alice">Alice → Bob</option>
+            <option value="bob">Bob → Alice</option>
+          </select>
+
+          <textarea id="msgInput" class="msg-input" placeholder="Type a message... (Ctrl/Cmd+Enter to send)"></textarea>
+
+          <div class="btn-row">
+            <button id="sendBtn" class="primary">Send</button>
+            <button id="clearBtn" class="ghost">Clear</button>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- lightweight debug drawer -->
+    <aside class="debug-drawer" id="debugDrawer" aria-hidden="true">
+      <div class="drawer-header">
+        <div>Latest Encrypted Bundle</div>
+        <button id="copyBundle" class="ghost">Copy</button>
+      </div>
+      <pre id="bundleView" class="bundle">(none)</pre>
+
+      <div class="drawer-keys" id="drawerKeys" style="display:none">
+        <div class="kbd muted">Server keys (debug)</div>
+        <pre id="keysView" class="bundle"></pre>
+      </div>
+
+      <div style="margin-top:8px">
+        <button id="hideKeysBtn" class="ghost" style="display:none">Hide keys</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- whatsapp dark JS (save next) -->
+  <script src="/wa_app.js" defer></script>
+</body>
+</html>
